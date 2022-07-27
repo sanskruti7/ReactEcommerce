@@ -18,7 +18,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-mongoose.connect(process.env.MONGODB_URL, {
+mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/ecom', {
 });
 app.use('/api/uploads', uploadRouter);
 app.use('/api/users', userRouter);
