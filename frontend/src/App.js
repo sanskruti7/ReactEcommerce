@@ -28,9 +28,6 @@ import { listProductCategories } from './actions/productActions';
 import LoadingBox from './components/LoadingBox';
 import MessageBox from './components/MessageBox';
 import MapScreen from './screens/MapScreen';
-import DashboardScreen from './screens/DashboardScreen';
-import SupportScreen from './screens/SupportScreen';
-import ChatBox from './components/ChatBox';
 
 function App() {
   const cart = useSelector((state) => state.cart);
@@ -121,9 +118,6 @@ function App() {
                   </li>
                   <li>
                     <Link to="/userlist">Users</Link>
-                  </li>
-                  <li>
-                    <Link to="/support">Support</Link>
                   </li>
                 </ul>
               </div>
@@ -222,12 +216,6 @@ function App() {
             component={UserEditScreen}
           ></AdminRoute>
 
-          <AdminRoute
-            path="/dashboard"
-            component={DashboardScreen}
-          ></AdminRoute>
-          <AdminRoute path="/support" component={SupportScreen}></AdminRoute>
-
           <SellerRoute
             path="/productlist/seller"
             component={ProductListScreen}
@@ -240,7 +228,7 @@ function App() {
           <Route path="/" component={HomeScreen} exact></Route>
         </main>
         <footer className="row center">
-          {userInfo && !userInfo.isAdmin && <ChatBox userInfo={userInfo} />}
+          {/* {userInfo && !userInfo.isAdmin && <ChatBox userInfo={userInfo} />} */}
           <div>All right reserved</div>{' '}
         </footer>
       </div>
@@ -249,128 +237,3 @@ function App() {
 }
 
 export default App;
-// import React from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { BrowserRouter, Link, Route } from 'react-router-dom';
-// import { signout } from './actions/userActions';
-// import HomeScreen from './screens/HomeScreen';
-// import ProductScreen from './screens/ProductScreen';
-// import CartScreen from './screens/CartScreen';
-// import SigninScreen from './screens/SigninScreen';
-// import RegisterScreen from './screens/RegisterScreen';
-// import ShippingAddressScreen from './screens/ShippingAddressScreen';
-// import PaymentMethodScreen from './screens/PaymentMethodScreen';
-// import PlaceOrderScreen from './screens/PlaceOrderScreen';
-// import AdminRoute from './components/AdminRoute';
-// import ProductListScreen from './screens/ProductListScreen';
-// import ProductEditScreen from './screens/ProductEditScreen';
-// import OrderHistoryScreen from './screens/OrderHistoryScreen';
-// import OrderScreen from './screens/OrderScreen';
-// import googleauth from './screens/googleauth';
-// import MapScreen from './screens/MapScreen';
-// //import socialMediaAuth from '../service/auth';
-// //import { facebookProvider , googleProvider, githubProvider } from './config/authMethods';
-// import OrderListScreen from './screens/OrderListScreen';
-// import PrivateRoute from './components/PrivateRoute';
-
-// function App() {
-//   const cart = useSelector((state) => state.cart);
-//   const { cartItems } = cart;
-//   const userSignin = useSelector((state) => state.userSignin);
-//   const { userInfo } = userSignin;
-//   const dispatch = useDispatch();
-//   // const handleOnClick = async (provider) =>{
-//   //   const res = await socialMediaAuth(provider);
-//   //   console.log()
-//   // }
-//   const signoutHandler = () => {
-//     dispatch(signout());
-//   };
-//   return (
-//   <BrowserRouter>
-//     <div className="grid-container">
-//     <header className="header">
-//       <div className="brand">
-//         <button onclick="openMenu()">
-//           &#9776;
-//         </button>
-//         <Link to="/">ECommerce</Link>
-//       </div>
-//       <div className="header-links">
-//       <Link to="/cart">
-//               Cart
-//               {cartItems.length > 0 && (
-//                 <span className="badge">{cartItems.length}</span>
-//               )}
-//             </Link>
-//             {userInfo ? (
-//               <div className="dropdown">
-//                 <Link to="#">
-//                   {userInfo.name} <i className="fa fa-caret-down"></i>{' '}
-//                 </Link>
-//                 <ul className="dropdown-content">
-//                 <li>
-//                     <Link to="/orderhistory">Order History</Link>
-//                   </li>
-//                   <li>
-//                     <Link to="#signout" onClick={signoutHandler}>
-//                       Sign Out
-//                     </Link>
-//                   </li>
-                  
-//                 </ul>
-//               </div>
-//             ) : (
-//               <Link to="/signin">Sign In</Link>
-//             )}
-//             {userInfo && userInfo.isAdmin && (
-//               <div className="dropdown">
-//                 <Link to="#admin">
-//                   Admin <i className="fa fa-caret-down"></i>
-//                 </Link>
-//                 <ul className="dropdown-content">
-                  
-//                   <li>
-//                     <Link to="/productlist">Products</Link>
-//                   </li>
-//                 </ul>
-//               </div>
-//             )}
-//       </div>
-//     </header>
-    
-//     <main className="main">
-//     <PrivateRoute path="/map" component={MapScreen}></PrivateRoute>
-//     <AdminRoute
-//             path="/productlist"
-//             component={ProductListScreen}
-//           ></AdminRoute>
-//       <AdminRoute
-//             path="/orderlist"
-//             component={OrderListScreen}
-//           ></AdminRoute>
-//       <Route
-//             path="/product/:id/edit"
-//             component={ProductEditScreen}
-//             exact
-//           ></Route>
-//       <Route path="/" component={HomeScreen} exact></Route>
-//       <Route path="/cart/:id?" component={CartScreen}></Route>
-//       <Route path="/signin" component={SigninScreen}></Route>
-//       <Route path="/shipping" component={ShippingAddressScreen}></Route>
-//       <Route path="/register" component={RegisterScreen}></Route>
-//       <Route path="/placeorder" component={PlaceOrderScreen}></Route>
-//       <Route path="/orderhistory" component={OrderHistoryScreen}></Route>
-//       <Route path="/order/:id" component={OrderScreen}></Route>
-//       <Route path="/googleauth" component={googleauth}></Route>
-//       <Route path="/payment" component={PaymentMethodScreen}></Route>
-//       <Route path="/product/:id" component={ProductScreen} exact></Route>
-//     </main>
-    
-//   </div>
-//   </BrowserRouter>
-//   );
-  
-// }
-
-// export default App;
